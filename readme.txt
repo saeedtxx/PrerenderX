@@ -1,44 +1,36 @@
-=== Instant Speculative Loading ===
+=== PrerenderX – Instant Page & Speculation Preloader ===
 Contributors: saeedtx
-Tags: speculation rules, prerender, prefetch, performance, speed
+Tags: prerender, speculation rules, instant page, prefetch, speed
 Requires at least: 5.7
 Tested up to: 7.1
 Stable tag: 1.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Complete control suite for the native W3C Speculation Rules API with granular configuration, Save-Data support, and zero JavaScript overhead.
+Next-generation browser preloading and speculation rules control suite with zero external JavaScript overhead.
 
 == Description ==
-Instant Speculative Loading provides an advanced, user-friendly control suite for the browser-native **W3C Speculation Rules API**. Rather than using generic hardcoded rules, it gives administrators full visual control over how pages are pre-loaded without writing any code.
+PrerenderX accelerates page navigation to near-zero latency by leveraging Chromium's native Speculation Rules engine. Instead of running heavy JavaScript preloading scripts, PrerenderX activates native browser-level background rendering with granular administrative controls.
 
-Unlike simple experimental plugins, Instant Speculative Loading includes:
-* **Custom Delivery Modes:** Switch effortlessly between full Prerender (near 0ms load) and lightweight Prefetch (HTML cache only).
-* **Eagerness Tuning:** Adjust trigger sensitivity (Moderate for hover intent, Conservative for click initiation, or Eager).
-* **Network & Save-Data Awareness:** Detects client `Save-Data` headers automatically to avoid wasting mobile bandwidth on metered networks.
-* **Granular Exclusions:** Visual exclusion managers for custom URL wildcard paths and custom CSS selectors.
-* **Role Safety:** Option to disable speculative loading for logged-in administrators and authors.
-* **E-Commerce Safe:** Automatically detects and excludes WooCommerce Cart, Checkout, and Account endpoints.
-* **Zero Runtime JS:** Relies 100% on native browser rendering engines without injecting heavy third-party scripts.
+= Key Features =
+* **Dual Delivery Modes:** Choose between instantaneous Prerender (DOM background render) or lightweight Prefetch (HTML cache only).
+* **Configurable Eagerness:** Trigger preloads via Moderate hover intent (200ms hold), Conservative click initiation, or Eager viewport loading.
+* **Save-Data Awareness:** Automatically halts background fetching when mobile visitors have Data Saver mode turned on.
+* **Granular Exclusions:** Visual exclusion managers for custom wildcard URL paths and CSS selectors directly from the dashboard.
+* **User Session Protection:** Optionally disable preloading for logged-in administrators and editors.
+* **WooCommerce Compatible:** Automatically excludes cart, checkout, and customer account endpoints.
+* **Zero Runtime JS:** 100% native browser implementation with no external render-blocking assets.
 
 == Installation ==
-1. Upload the `instant-speculative-loading` folder to your `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to **Settings > Speculative Loading** to configure your delivery preferences.
-
-== Frequently Asked Questions ==
-= How does this differ from basic speculation rules plugins? =
-Basic plugins inject rigid, non-configurable scripts into the footer. Instant Speculative Loading offers a complete WordPress dashboard suite to customize delivery modes (Prerender vs. Prefetch), set eagerness thresholds, respect mobile Save-Data preferences, and manage custom URL/selector exclusions visually.
-
-= Does it preload admin or cart pages? =
-No. Sensitive admin routes and WooCommerce checkout/cart pages are strictly excluded out of the box.
+1. Upload the `prerenderx-instant-preloader` folder to your `/wp-content/plugins/` directory.
+2. Activate the plugin via the 'Plugins' menu in WordPress.
+3. Configure your preferences under **Settings > PrerenderX**.
 
 == Changelog ==
 = 1.1.0 =
-* Major release: Added dedicated admin settings dashboard under Settings > Speculative Loading.
-* Added support for toggling Prerender vs. Prefetch delivery modes.
-* Added Eagerness selector (Moderate, Conservative, Eager).
-* Added Save-Data client network header detection.
-* Added user exclusion controls for logged-in sessions.
-* Added visual input fields for custom URL paths and CSS selector exclusions.
+* Initial release of PrerenderX suite.
+* Administrative control dashboard under Settings > PrerenderX.
+* Support for Prerender and Prefetch modes with granular eagerness levels.
+* Integrated mobile Save-Data header detection.
+* Built-in visual wildcard URL and CSS selector exclusions.
