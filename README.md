@@ -52,3 +52,9 @@ PrerenderX outputs a native specification block in the document footer:
   ]
 }
 </script>
+
+
+Supporting browsers (Chrome, Edge, Brave, Opera) parse the rules natively, while other browsers safely ignore the tag with zero errors.
+
+🔌 Developer Hooks
+Programmatically customize excluded URL paths using the prerenderx_exclude_paths filter:
