@@ -1,41 +1,41 @@
+![PrerenderX – Instant Page & Speculation Preloader](assets/banner-772x250.png)
 
-![Instant Speculative Loading](assets/banner-772x250.png)
+# PrerenderX – Instant Page & Speculation Preloader ⚡
 
-# Instant Speculative Loading ⚡
+> Next-generation browser preloading and W3C Speculation Rules control suite with granular administrative settings, Save-Data awareness, and zero external JavaScript overhead.
 
-> Advanced control suite for the native W3C Speculation Rules API — featuring granular admin settings, network awareness, and zero external JavaScript overhead.
-
-[![WordPress Tested](https://img.shields.io/badge/WordPress-5.7+-blue.svg)](https://wordpress.org/)
-[![PHP Version](https://img.shields.io/badge/PHP-7.4+-purple.svg)](https://php.net/)
-[![License: GPL v2+](https://img.shields.io/badge/License-GPLv2+-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![WordPress Plugin](https://img.shields.io/badge/WordPress.org-prerenderx--instant--preloader-blue.svg)](https://wordpress.org/plugins/prerenderx-instant-preloader/)
+[![WordPress Tested](https://img.shields.io/badge/WordPress-5.7%2B-blue.svg)](https://wordpress.org/)
+[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net/)
+[![License: GPL v2+](https://img.shields.io/badge/License-GPLv2%2B-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 
 ---
 
 ## 🚀 Overview
 
-**Instant Speculative Loading** is an ultra-lightweight, zero-dependency WordPress performance suite that implements the modern W3C [Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
+**PrerenderX** accelerates WordPress page navigation to near-zero latency by leveraging Chromium's native [Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
 
-Unlike legacy preloading libraries (such as `instant.page` or `InstantClick`) that inject heavy JavaScript bundles and trigger synthetic background fetches, this plugin coordinates directly with Chromium's native rendering engine. When a visitor hovers over or intends to click an internal link, the browser prerenders the target page in the background, making navigation feel instantaneous.
+Instead of injecting heavy third-party JavaScript libraries that strain the main thread, **PrerenderX** communicates directly with the browser's native rendering engine to prerender or prefetch target pages in the background before the user even finishes clicking.
 
 ## ✨ Key Features
 
-- **⚙️ Dedicated Admin Dashboard:** Visual settings panel located under **Settings > Speculative Loading** — configure behavior without editing theme files.
+- **⚙️ Dedicated Admin Dashboard:** Configure all preloading behaviors visually under **Settings > PrerenderX** without touching code.
 - **🔄 Dual Delivery Modes:**
-  - **Prerender:** Background DOM rendering for near-zero latency page transitions.
-  - **Prefetch:** Bandwidth-conscious mode that pre-downloads HTML only.
-- **🎯 Granular Eagerness Controls:** Select between `Moderate` (hover intent), `Conservative` (pointer down / click start), or `Eager` (viewport detection).
-- **📶 Network & Save-Data Awareness:** Automatically inspects the client `Save-Data` HTTP header and suspends background requests on metered mobile connections.
-- **🛡️ Logged-In User Protection:** Toggle to disable speculative loading for administrators and editors to prevent unnecessary server strain.
-- **🚫 Visual Exclusions Manager:** Define custom URL wildcard paths (`*`) and CSS selectors directly from the WordPress dashboard.
-- **🛒 E-commerce Compatible:** Automatically detects and excludes WooCommerce Cart, Checkout, and My Account endpoints.
-- **⚡ Zero JavaScript Overhead:** 100% native browser prerendering with no external JS or CSS assets loaded.
+  - **Prerender:** Renders full HTML & DOM in the background for instantaneous (near 0ms) transitions.
+  - **Prefetch:** Bandwidth-safe mode that pre-downloads HTML only without rendering.
+- **🎯 Configurable Eagerness:** Choose between `Moderate` (hover intent / 200ms hold), `Conservative` (pointer down / click start), or `Eager` (viewport detection).
+- **📶 Save-Data & Network Awareness:** Automatically inspects the client `Save-Data` HTTP header and suspends background preloading for mobile visitors on metered connections.
+- **🛡️ User Session Protection:** Option to disable preloading for logged-in administrators and users.
+- **🚫 Visual Exclusions Manager:** Define custom wildcard (`*`) URL paths and CSS selectors directly from the WordPress dashboard.
+- **🛒 WooCommerce Compatible:** Automatically detects and excludes WooCommerce Cart, Checkout, and My Account endpoints.
+- **⚡ Zero Runtime JS:** 100% native browser implementation with no external JavaScript or CSS files loaded.
 
 ## 🛠️ How It Works
 
-The plugin registers an inline configuration tag inside the document footer:
+PrerenderX outputs a native specification block in the document footer:
 
 ```html
-<script type="speculationrules" id="instant-speculative-loading-rules">
+<script type="speculationrules" id="prerenderx-speculation-rules">
 {
   "prerender": [
     {
@@ -52,58 +52,3 @@ The plugin registers an inline configuration tag inside the document footer:
   ]
 }
 </script>
-
-```
-
-Supporting browsers (Chrome, Edge, Brave, Opera) parse the specification directly. Non-supporting browsers cleanly ignore the script tag without generating console warnings.
-
-## 🔌 Developer Hooks
-
-Extend or modify excluded paths programmatically through the `instant_speculative_loading_exclude_paths` filter:
-
-```php
-add_filter('instant_speculative_loading_exclude_paths', function( array $exclude_paths ): array {
-    $exclude_paths[] = '/my-custom-portal/*';
-    $exclude_paths[] = '/private-downloads/*';
-    return $exclude_paths;
-});
-
-```
-
-To prevent a specific link on your site from being prerendered via markup, append `rel="nofollow"` or the `.no-prerender` class:
-
-```html
-<a href="/special-page" class="no-prerender">Link Title</a>
-
-```
-
-## 📦 Installation
-
-### From WordPress Dashboard:
-
-1. Download `instant-speculative-loading.zip` from the latest [Releases](https://www.google.com/search?q=https://github.com/saeedtx/Instant-Speculative-Loading/releases).
-2. Navigate to **Plugins > Add New > Upload Plugin**.
-3. Upload the `.zip` archive and click **Activate**.
-4. Configure options under **Settings > Speculative Loading**.
-
-### Via Git:
-
-```bash
-git clone [https://github.com/saeedtx/instant-speculative-loading.git](https://github.com/saeedtx/instant-speculative-loading.git) wp-content/plugins/instant-speculative-loading
-
-```
-
-## 👤 Author
-
-**Saeed Tosifyan**
-
-* Website: [medseo.ir](https://medseo.ir)
-* LinkedIn: [linkedin.com/in/saeedtx](https://linkedin.com/in/saeedtx)
-
-## 📄 License
-
-This project is open-source software licensed under the GNU General Public License v2.0 or later.
-
-```
-
-```
