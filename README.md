@@ -1,3 +1,4 @@
+
 ![PrerenderX – Instant Page & Speculation Preloader](assets/banner-772x250.png)
 
 # PrerenderX – Instant Page & Speculation Preloader ⚡
@@ -52,46 +53,59 @@ PrerenderX outputs a native specification block in the document footer:
   ]
 }
 </script>
+
 ```
 
 Supporting browsers (Chrome, Edge, Brave, Opera) parse the rules natively, while other browsers safely ignore the tag with zero errors.
 
-🔌 Developer Hooks
-Programmatically customize excluded URL paths using the prerenderx_exclude_paths filter:
-```
+## 🔌 Developer Hooks
+
+Programmatically customize excluded URL paths using the `prerenderx_exclude_paths` filter:
+
+```php
 add_filter('prerenderx_exclude_paths', function( array $exclude_paths ): array {
     $exclude_paths[] = '/my-custom-portal/*';
     $exclude_paths[] = '/private-downloads/*';
     return $exclude_paths;
 });
-```
-To exclude specific links in your HTML markup, add rel="nofollow" or the .no-prerender class:
 
 ```
+
+To exclude specific links in your HTML markup, add `rel="nofollow"` or the `.no-prerender` class:
+
+```html
 <a href="/special-page" class="no-prerender">Special Link</a>
+
 ```
-📦 Installation
-From WordPress.org (Recommended):
-In your WordPress Admin, go to Plugins > Add New.
 
-Search for PrerenderX.
+## 📦 Installation
 
-Click Install Now and Activate.
+### From WordPress.org (Recommended):
 
-Configure settings under Settings > PrerenderX.
+1. In your WordPress Admin, go to **Plugins > Add New**.
+2. Search for **PrerenderX**.
+3. Click **Install Now** and **Activate**.
+4. Configure settings under **Settings > PrerenderX**.
 
-Via Git:
+### Via Git:
+
+```bash
+git clone [https://github.com/saeedtxx/PrerenderX.git](https://github.com/saeedtxx/PrerenderX.git) wp-content/plugins/prerenderx-instant-preloader
+
 ```
-git clone [https://github.com/saeedtx/PrerenderX.git](https://github.com/saeedtx/PrerenderX.git) wp-content/plugins/prerenderx-instant-preloader
-```
-👤 Author
-Saeed Tosifyan
 
-Website: medseo.ir
+## 👤 Author
 
-LinkedIn: linkedin.com/in/saeedtx
+**Saeed Tosifyan**
 
-WordPress.org: @saeedtx
+* Website: [medseo.ir](https://medseo.ir)
+* LinkedIn: [linkedin.com/in/saeedtx](https://linkedin.com/in/saeedtx)
+* WordPress.org: [@saeedtx](https://www.google.com/search?q=https://profiles.wordpress.org/saeedtx/)
 
-📄 License
+## 📄 License
+
 This project is open-source software licensed under the GNU General Public License v2.0 or later.
+
+```
+
+```
